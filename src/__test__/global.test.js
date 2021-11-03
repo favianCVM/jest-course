@@ -1,3 +1,5 @@
+const {reverseString2} = require('../index')
+
 const testText = "lorem ipsum"
 const fruits = ['apple', 'melon', 'pineapple']
 
@@ -26,3 +28,35 @@ test('callback test', () => {
     expect(str).toBe('egassem')
   })
 })
+
+
+test("promise test", () => {
+  return reverseString2('hola')
+    .then(string => expect(string).toBe('aloh'))
+})
+
+test('async/await test', async () => {
+  const string = await reverseString2('hola');
+  expect(string).toBe('aloh');
+
+})
+
+//functions that will be called before and after the test runs
+
+// afterEach(() => {
+//   console.log('after test ------')
+// })
+
+// afterAll(()=>{
+//   console.log('after all test -----');
+// })
+
+// beforeEach(()=> {
+//   console.log('before test -------')
+// })
+
+// beforeAll(() => {
+//   console.log('before all test -------')
+// })
+
+
